@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadcn Dark-Themed Profile</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Theme (using your provided tokens) -->
+    <style>
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+          --chart-1: 12 76% 61%;
+          --chart-2: 173 58% 39%;
+          --chart-3: 197 37% 24%;
+          --chart-4: 43 74% 66%;
+          --chart-5: 27 87% 67%;
+        }
+
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+          --chart-1: 220 70% 50%;
+          --chart-2: 160 60% 45%;
+          --chart-3: 30 80% 55%;
+          --chart-4: 280 65% 60%;
+          --chart-5: 340 75% 55%;
+        }
+      }
+    </style>
+
+    <!-- Tailwind Configuration to Use the Custom Variables -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              card: "hsl(var(--card))",
+              "card-foreground": "hsl(var(--card-foreground))",
+              popover: "hsl(var(--popover))",
+              "popover-foreground": "hsl(var(--popover-foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+            },
+            borderRadius: {
+              lg: "var(--radius)",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Import Inter Font -->
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+
+    <!-- Additional Custom Styling -->
+    <style>
+      body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-6">
+    <!-- Profile Card -->
+    <div
+      class="bg-card text-card-foreground shadow-lg rounded-lg border border-border max-w-sm w-full overflow-hidden"
+    >
+      <!-- Header -->
+      <div class="p-6 border-b border-border">
+        <div class="flex justify-center">
+          <img
+            id="profileImage"
+            src=""
+            alt="Profile Image"
+            class="w-24 h-24 rounded-full border-2 border-border shadow-md"
+          />
+        </div>
+        <h1 class="mt-4 text-center text-2xl font-bold">Vault Overflow</h1>
+        <p class="mt-1 text-center text-sm">
+          Overflowing the Vault of funny videos with Laughter!
+        </p>
+      </div>
+      <!-- Body -->
+      <div class="p-6 space-y-6">
+        <!-- Categories Container -->
+        <div id="linksContainer" class="space-y-6"></div>
+        <!-- Icons Container -->
+        <div id="iconsContainer" class="flex justify-center space-x-4"></div>
+      </div>
+      <!-- Footer -->
+      <div class="p-6 border-t border-border">
+        <a
+          id="sourceCodeLink"
+          href=""
+          target="_blank"
+          class="block w-full text-center py-2 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition"
+        >
+          View Source Code
+        </a>
+      </div>
+    </div>
+
+    <!-- JSON Data and Script to Populate the Card -->
+    <script>
+      const jsonData = {
+        profileImage:
+          "https://github.com/user-attachments/assets/fecb05e2-df27-496c-8585-c12e67f5f24d",
+        categories: [
+          {
+            title: "Social Media",
+            links: [
+              {
+                title: "Instagram",
+                url: "https://www.instagram.com/vaultoverflow/",
+                icon: "https://cdn-icons-png.flaticon.com/128/2111/2111463.png",
+              },
+              {
+                title: "TikTok",
+                url: "https://www.tiktok.com/@vaultoverflow",
+                icon: "https://cdn-icons-png.flaticon.com/128/2504/2504942.png",
+              },
+              {
+                title: "Pinterest",
+                url: "https://www.pinterest.com/vaultoverflow/",
+                icon: "https://cdn-icons-png.flaticon.com/128/145/145808.png",
+              },
+            ],
+          },
+        ],
+        // iconsUrls: [
+        //   {
+        //     url: "",
+        //     icon: "https://cdn-icons-png.flaticon.com/512/733/733579.png",
+        //   },
+        //   {
+        //     url: "https://facebook.com",
+        //     icon: "https://cdn-icons-png.flaticon.com/512/733/733547.png",
+        //   },
+        // ],
+        sourceCode: "https://github.com/your-repo",
+      };
+
+      // Set the profile image
+      document.getElementById("profileImage").src = jsonData.profileImage;
+
+      // Populate categories and links
+      const linksContainer = document.getElementById("linksContainer");
+      jsonData.categories.forEach((category) => {
+        // Create a container for each category
+        const categoryDiv = document.createElement("div");
+
+        // Category Title
+        const categoryTitle = document.createElement("h2");
+        categoryTitle.textContent = category.title;
+        categoryTitle.className = "text-lg font-semibold mb-2";
+        categoryDiv.appendChild(categoryTitle);
+
+        // Create a wrapper for category links with spacing
+        const categoryLinksContainer = document.createElement("div");
+        categoryLinksContainer.className = "flex flex-col space-y-2";
+
+        // Category Links
+        category.links.forEach((link) => {
+          const a = document.createElement("a");
+          a.href = link.url;
+          a.target = "_blank";
+          a.className =
+            "flex items-center gap-3 px-4 py-2 rounded-md border border-border bg-card hover:bg-accent hover:text-accent-foreground transition";
+          a.innerHTML = `<img src="${link.icon}" alt="${link.title}" class="w-5 h-5"><span class="font-medium">${link.title}</span>`;
+          categoryLinksContainer.appendChild(a);
+        });
+
+        // Append the links wrapper to the category block
+        categoryDiv.appendChild(categoryLinksContainer);
+        linksContainer.appendChild(categoryDiv);
+      });
+
+      // Populate icons
+      const iconsContainer = document.getElementById("iconsContainer");
+      jsonData.iconsUrls.forEach(({ url, icon }) => {
+        const a = document.createElement("a");
+        a.href = url;
+        a.target = "_blank";
+        a.className =
+          "p-2 rounded-full border border-border bg-card hover:bg-muted hover:text-muted-foreground transition";
+        a.innerHTML = `<img src="${icon}" class="w-6 h-6">`;
+        iconsContainer.appendChild(a);
+      });
+
+      // Set source code link
+      document.getElementById("sourceCodeLink").href = jsonData.sourceCode;
+    </script>
+  </body>
+</html>
