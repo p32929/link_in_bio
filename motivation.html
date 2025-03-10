@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vault Overflow</title>
+    <!-- The page title will be set via JSON -->
+    <title>Link in Bio</title>
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -143,9 +144,13 @@
             class="w-24 h-24 rounded-full border-2 border-border shadow-md"
           />
         </div>
-        <h1 class="mt-4 text-center text-2xl font-bold">Vault Overflow</h1>
-        <p class="mt-1 text-center text-sm">
-          Overflowing the Vault of funny videos with Laughter!
+        <!-- Header Title -->
+        <h1 id="headerTitle" class="mt-4 text-center text-2xl font-bold">
+          Default Header Title
+        </h1>
+        <!-- Header Tagline -->
+        <p id="headerTagline" class="mt-1 text-center text-sm">
+          Default tagline goes here.
         </p>
       </div>
       <!-- Body -->
@@ -194,8 +199,16 @@
         sourceCode: "https://github.com/p32929/link_in_bio",
       };
 
+      // Set the page title using JSON data
+      document.title = jsonData.pageTitle;
+
       // Set the profile image
       document.getElementById("profileImage").src = jsonData.profileImage;
+
+      // Set header title and tagline from JSON data
+      document.getElementById("headerTitle").textContent = jsonData.headerTitle;
+      document.getElementById("headerTagline").textContent =
+        jsonData.headerTagline;
 
       // Populate categories and links
       const linksContainer = document.getElementById("linksContainer");
