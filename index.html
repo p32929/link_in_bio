@@ -137,12 +137,16 @@
       <!-- Header -->
       <div class="p-6 border-b border-border">
         <div class="flex justify-center">
-          <img
-            id="profileImage"
-            src=""
-            alt="Profile Image"
-            class="w-24 h-24 rounded-full border-2 border-border shadow-md"
-          />
+          <div class="relative w-24 h-24">
+            <div id="imagePlaceholder" class="absolute inset-0 rounded-full bg-muted animate-pulse"></div>
+            <img
+              id="profileImage"
+              src=""
+              alt="Profile Image"
+              class="w-24 h-24 rounded-full border-2 border-border shadow-md opacity-0 transition-opacity duration-300"
+              onload="this.classList.remove('opacity-0'); document.getElementById('imagePlaceholder').style.display = 'none';"
+            />
+          </div>
         </div>
         <!-- Header Title -->
         <h1 id="headerTitle" class="mt-4 text-center text-2xl font-bold">
@@ -177,12 +181,12 @@
     <script>
       const jsonData = {
         // Modify the page title, header title, and tagline here:
-        pageTitle: "Vault Overflow",
-        headerTitle: "Vault Overflow",
+        pageTitle: "Funny Overflow",
+        headerTitle: "Funny Overflow",
         headerTagline: "Overflowing the Vault of funny videos with Laughter!",
 
         profileImage:
-          "https://github.com/user-attachments/assets/fecb05e2-df27-496c-8585-c12e67f5f24d",
+          "https://github.com/user-attachments/assets/1b4d2514-e2fe-4c7d-8e3f-d8457414e37c",
         categories: [
           {
             title: "Funny Videos",
